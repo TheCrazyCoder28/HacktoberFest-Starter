@@ -6,5 +6,5 @@ Make Sure that the folder you are creating has the name of your programming lang
 For Example: 
 1) Create a Folder named Python
 2) Create a Hello world script in it like helloworld.py
-UNNECESSARY PULL REQUESTS WILL BE MARKED AS INVALID. 
+3) Create a Pull Request!
 ---
