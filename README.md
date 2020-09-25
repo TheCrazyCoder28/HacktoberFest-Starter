@@ -1,4 +1,3 @@
-
 # HacktoberFest-Starter-2020
 This Is an Open source Repository For Hacktoberfest Where You can Contribute.
 ---
