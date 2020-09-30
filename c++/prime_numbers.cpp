@@ -1,6 +1,5 @@
 /*
 This Program will help you For checking prime number and generating prime numbers
-
 Author:NIKHIL RAJ PANDEY
 Current Age:14 Years
 */
