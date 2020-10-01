@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+
+<body>
+    <h2>Collecting Information for HacktoberFest 2020 T-Shirts</h2>
+    <form action="backend.php">
+        <label for="name"> Name:</label>
+        <div>
+            <input type="text" name="myName" id="name">
+        </div>
+        <br>
+        <label for="name1"> Occupation:</label>
+        <div>
+            <input type="text" name="myOccupation" id="name1">
+        </div>
+        <br>
+        <label for="name2"> Email:</label>
+        <div>
+            <input type="email" name="myEmail" id="name2">
+        </div>
+        <br>
+        <label for="name3"> Birth Date:</label>
+        <div>
+            <input type="date" name="myDate" id="name3">
+        </div>
+        
+        <br>
+        <label for="name4"> Which is your favourite programming language?</label>
+        <div>
+            <input type="text" name="myLanguage" id="name4">
+        </div>
+        <br>
+        <div>
+            Are you craving for T-Shirt: <input type="checkbox" name="myEligibility" checked>
+        </div>
+        <br>
+        <div>
+            Gender: Male <input type="radio" name="myGender"> Female <input type="radio" name="myGender">
+            Other <input type="radio" name="myGender">
+        </div>
+
+        <br>
+        <div>
+            Write about yourself: <br><textarea name="myText" cols="80" rows="10"></textarea>
+        </div>
+
+        <br>
+        
+
+        <div>
+            <input type="submit" value="Submit Now">
+            <input type="reset" value="Reset Now">
+        </div>
+    </form>
+</body>
+
+</html>
