@@ -1,2 +1,2 @@
-7: Name: Zeeshan Khalid, Location: Pakistan
+8: Name: Sameer Ahmed, Location: India
 
