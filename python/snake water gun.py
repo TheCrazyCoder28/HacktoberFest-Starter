@@ -90,9 +90,9 @@ while True:
 	play_again=input()
 	print("\n")
 	if play_again=="2" or play_again=="exit":
-		print("😭😭😭\n")
-		print("Why are you exiting😭😭😭\n")
-		print("But plz come again to play🥺🥺🥺\n")
+	
+		print("Why are you exiting\n")
+		print("But plz come again to play\n")
 		break
 		
 	time.sleep(2)
