@@ -1,0 +1,19 @@
+mysql> select product as product_name from bank_details;
++--------------+
+| product_name |
++--------------+
+| pay_card     |
+| paypoints    |
++--------------+
+2 rows in set (0.10 sec)
+
+mysql> select * from bank_details;
++-----------+----------+-------+---------------+----------------------+--------------+
+| product   | quantity | price | purchase_cost | estimated_sale_price | geo_location |
++-----------+----------+-------+---------------+----------------------+--------------+
+| pay_card  |        3 |   330 |       8008.00 |                 9009 | NULL         |
+| paypoints |        4 |   200 |       8000.00 |                 6800 | NULL         |
++-----------+----------+-------+---------------+----------------------+--------------+
+2 rows in set (0.00 sec)
+
+mysql>

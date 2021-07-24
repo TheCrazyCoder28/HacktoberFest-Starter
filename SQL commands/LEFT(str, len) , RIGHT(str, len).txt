@@ -1,0 +1,17 @@
+
+mysql> Select Name, surname, CONCAT(LEFT(Name, 3), RIGHT(surname, 2)) as LoginID from abhishek;
++----------+---------+---------+
+| Name     | surname | LoginID |
++----------+---------+---------+
+| abhishek | pathak  | abhak   |
+| jash     | boricha | jasha   |
+| aniket   | navale  | anile   |
+| yash     | molawde | yasde   |
+| Krishna  | tiwari  | Kriri   |
+| abhishek | pathak  | abhak   |
+| yash     | molawde | yasde   |
++----------+---------+---------+
+7 rows in set (0.10 sec)
+
+mysql>
+

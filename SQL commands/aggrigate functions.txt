@@ -1,0 +1,15 @@
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|          90 |
++-------------+
+1 row in set (0.10 sec)
+
+mysql> select avg(salary) from employee;
++-------------+
+| avg(salary) |
++-------------+
+|     40.0000 |
++-------------+
+1 row in set (0.30 sec)

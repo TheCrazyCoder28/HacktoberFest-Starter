@@ -1,0 +1,8 @@
+
+mysql> select count(*) from employee;
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.34 sec)

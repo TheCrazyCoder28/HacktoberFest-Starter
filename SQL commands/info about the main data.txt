@@ -1,0 +1,64 @@
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use hello;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_hello |
++-----------------+
+| employee        |
+| employees       |
++-----------------+
+2 rows in set (0.02 sec)
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tech    |
+|    104 | krishna  | nohara   |      0 | tp      |
+|    106 | nashita  | patel    |     50 | support |
+|    102 | JASH     | boricha  |     20 | tax     |
+|    105 | aniket   | nawale   |     80 | tp      |
+|    107 | JASH     | bori     |     90 | tax     |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employees;
++--------+----------+-------------+----------+
+| emp_id | emp_name | emp_surname | salary   |
++--------+----------+-------------+----------+
+|    101 | scor     | cism        |   100000 |
+|    102 | abhi     | shek        |       10 |
+|    103 | jash     | boricha     | 10000000 |
+|    104 | yash     | molawde     |   200000 |
+|    105 | nashita  | patel       | 30000000 |
+|    106 | Aniket   | nawale      |      300 |
+|    107 | ashish   | jha         |       30 |
++--------+----------+-------------+----------+
+7 rows in set (0.00 sec)
+
+mysql>
