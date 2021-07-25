@@ -1,18 +1,16 @@
-# HacktoberFest-Starter-2020
+# HacktoberFest-Starter-2021
 This Is an Open source Repository For Hacktoberfest Where You can Contribute.
 ---
 ## Method 1
-Just fork this repository create a new folder and add hello world script in favorite programming language.
-Make Sure that the folder you are creating has the name of your programming language. 
-For Example: 
-1) Create a Folder named Python.
-2) Create a Hello world script in it like helloworld.py.
-3) Create a Pull Request!
----
-## Method 2
-Add your Name to contrib.md and open a PR. 
-example: Name: TheCrazyCoder, Location: India.
+Just fork this repository and add your script in favorite programming language.
+Make Sure that scripts should be put in their respective folders only, if there is no folder create a new one with the name of the programming language.   
 
+For Example: 
+1) Create a something in Python.
+2) Put that on Python Folder.
+3) Add your Name to contrib.md. 
+4) ```example: Name: TheCrazyCoder, Location: India.```
+5) Create a Pull Request!
 ---
 ## Happy Coding❤❤❤
 
