@@ -1,0 +1,136 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 39
+Server version: 8.0.23 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE test;
+Query OK, 1 row affected (0.23 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+7 rows in set (0.16 sec)
+
+mysql> use test
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use mysql;
+Database changed
+mysql> select Host,User from user;
++-----------+------------------+
+| Host      | User             |
++-----------+------------------+
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+4 rows in set (0.31 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| mysql      |
++------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE DATABASE TEST_1;
+Query OK, 1 row affected (0.19 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| test_1             |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use test_1
+Database changed
+mysql> select database();
++------------+
+| database() |
++------------+
+| test_1     |
++------------+
+1 row in set (0.00 sec)
+
+mysql> drop database test_1
+    -> ;
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql>

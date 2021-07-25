@@ -1,0 +1,15 @@
+mysql> select name,surname,concat(name,surname) as full_name from abhishek;
++----------+---------+----------------+
+| name     | surname | full_name      |
++----------+---------+----------------+
+| abhishek | pathak  | abhishekpathak |
+| jash     | boricha | jashboricha    |
+| aniket   | navale  | aniketnavale   |
+| yash     | molawde | yashmolawde    |
+| Krishna  | tiwari  | Krishnatiwari  |
+| abhishek | pathak  | abhishekpathak |
+| yash     | molawde | yashmolawde    |
++----------+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql>

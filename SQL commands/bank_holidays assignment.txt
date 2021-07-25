@@ -1,0 +1,75 @@
+
+mysql> create table bank_holidays(
+    -> holiday date,
+    -> start_time datetime,
+    -> end_time timestamp);
+Query OK, 0 rows affected (1.72 sec)
+
+mysql> describe bank_holidays;
++------------+-----------+------+-----+---------+-------+
+| Field      | Type      | Null | Key | Default | Extra |
++------------+-----------+------+-----+---------+-------+
+| holiday    | date      | YES  |     | NULL    |       |
+| start_time | datetime  | YES  |     | NULL    |       |
+| end_time   | timestamp | YES  |     | NULL    |       |
++------------+-----------+------+-----+---------+-------+
+3 rows in set (0.11 sec)
+
+mysql> select * from bank_holidays;
+Empty set (0.00 sec)
+
+mysql> insert into bank_holidays values( current_date(),current_date(),current_date());
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select * from bank_holidays;
++------------+---------------------+---------------------+
+| holiday    | start_time          | end_time            |
++------------+---------------------+---------------------+
+| 2021-02-13 | 2021-02-13 00:00:00 | 2021-02-13 00:00:00 |
++------------+---------------------+---------------------+
+1 row in set (0.10 sec)
+
+mysql> current_date();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'current_date()' at line 1
+mysql>
+mysql> update bank_holiday set holiday= date_add(holiday,interval 1 day);
+ERROR 1146 (42S02): Table 'bank.bank_holiday' doesn't exist
+mysql> update bank_holidays set holiday= date_add(holiday,interval 1 day);
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bank_holidays;
++------------+---------------------+---------------------+
+| holiday    | start_time          | end_time            |
++------------+---------------------+---------------------+
+| 2021-02-14 | 2021-02-13 00:00:00 | 2021-02-13 00:00:00 |
++------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> update bank_holiday set holiday= date_add(holiday,interval 29 day);
+ERROR 1146 (42S02): Table 'bank.bank_holiday' doesn't exist
+mysql> update bank_holidays set holiday= date_add(holiday,interval 29 day);
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bank_holidays;
++------------+---------------------+---------------------+
+| holiday    | start_time          | end_time            |
++------------+---------------------+---------------------+
+| 2021-03-15 | 2021-02-13 00:00:00 | 2021-02-13 00:00:00 |
++------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> update bank_holidays set end_time=utc_timestamp();
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bank_holidays;
++------------+---------------------+---------------------+
+| holiday    | start_time          | end_time            |
++------------+---------------------+---------------------+
+| 2021-03-15 | 2021-02-13 00:00:00 | 2021-02-13 16:59:17 |
++------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>

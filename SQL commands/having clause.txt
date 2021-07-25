@@ -1,0 +1,12 @@
+
+mysql> select emp_name,max(salary),dept_id from employee group by dept_id having count(dept_id)>=2
+    -> ;
++----------+-------------+---------+
+| emp_name | max(salary) | dept_id |
++----------+-------------+---------+
+| krishna  |          80 | tp      |
+| JASH     |          90 | tax     |
++----------+-------------+---------+
+2 rows in set (0.00 sec)
+
+mysql>

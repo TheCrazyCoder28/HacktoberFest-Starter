@@ -1,0 +1,17 @@
+mysql> select * from employee where emp_name like "jash";
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    102 | JASH     | boricha  |     20 |
+|    107 | JASH     | bori     |     90 |
++--------+----------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from employee where emp_name like "j%";
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    102 | JASH     | boricha  |     20 |
+|    107 | JASH     | bori     |     90 |
++--------+----------+----------+--------+
+2 rows in set (0.00 sec)

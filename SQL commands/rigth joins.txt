@@ -1,0 +1,16 @@
+mysql> select a.dept_id,a.dept,a.dept_loc
+    -> from acting a
+    -> right join department d
+    -> on a.dept_loc=d.dept_loc;
++---------+--------+----------+
+| dept_id | dept   | dept_loc |
++---------+--------+----------+
+|    NULL | NULL   | NULL     |
+|       1 | python | uk       |
+|       2 | web    | ny       |
+|       3 | html   | boston   |
+|       2 | web    | ny       |
++---------+--------+----------+
+5 rows in set (0.31 sec)
+
+mysql>

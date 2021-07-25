@@ -1,0 +1,16 @@
+mysql> select * from employee order by salary asc
+    -> ;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    104 | krishna  | nohara   |      0 | tp      |
+|    101 | scor     | cism     |     10 | sales   |
+|    102 | JASH     | boricha  |     20 | tax     |
+|    103 | yash     | molawde  |     30 | tech    |
+|    106 | nashita  | patel    |     50 | support |
+|    105 | aniket   | nawale   |     80 | tp      |
+|    107 | JASH     | bori     |     90 | tax     |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql>

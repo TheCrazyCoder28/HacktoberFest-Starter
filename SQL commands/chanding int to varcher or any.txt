@@ -1,0 +1,17 @@
+mysql> alter table employee MODIFY dept_id varchar(20);
+Query OK, 7 rows affected (3.10 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | NULL    |
+|    103 | yash     | molawde  |     30 | NULL    |
+|    104 | krishna  | nohara   |      0 | NULL    |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | NULL    |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)

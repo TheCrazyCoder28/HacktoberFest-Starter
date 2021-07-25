@@ -1,0 +1,11 @@
+mysql> select distinct surname  from abhishek;
++---------+
+| surname |
++---------+
+| pathak  |
+| boricha |
+| navale  |
+| molawde |
+| tiwari  |
++---------+
+5 rows in set (0.00 sec)

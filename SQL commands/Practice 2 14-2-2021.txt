@@ -1,0 +1,704 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 66
+Server version: 8.0.23 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SELECT NAME FROM EMPLOYEE WHERE EXISTS (SELECT NAME FROM
+    -> EMPLOYEE WHERE SALARY > 25000);
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bank               |
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| scorcism           |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.13 sec)
+
+mysql> use scorcism;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_scorcism |
++--------------------+
+| abhishek           |
+| abhishek2          |
++--------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.12 sec)
+
+mysql> SELECT NAME FROM abhishek WHERE EXISTS (SELECT NAME FROM abhishek WHERE SALARY > 2500);
++----------+
+| NAME     |
++----------+
+| abhishek |
+| jash     |
+| aniket   |
+| yash     |
+| Krishna  |
+| abhishek |
+| yash     |
++----------+
+7 rows in set (0.10 sec)
+
+mysql> SELECT NAME FROM abhishek WHERE EXISTS(SELECT NAME FROM abhishek WHERE SALARY > 2500);
++----------+
+| NAME     |
++----------+
+| abhishek |
+| jash     |
+| aniket   |
+| yash     |
+| Krishna  |
+| abhishek |
+| yash     |
++----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT NAME FROM abhishek WHERE EXISTS(SELECT NAME FROM abhishek WHERE SALARY > 25000);
+Empty set (0.00 sec)
+
+mysql> SELECT NAME FROM abhishek WHERE EXISTS(SELECT NAME FROM abhishek WHERE SALARY > 4000);
++----------+
+| NAME     |
++----------+
+| abhishek |
+| jash     |
+| aniket   |
+| yash     |
+| Krishna  |
+| abhishek |
+| yash     |
++----------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek where surname='pathak';
++----+----------+---------+------------+-----------+--------+------------+
+| id | name     | surname | location   | mobo_code | salary | popularity |
++----+----------+---------+------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai |        91 |   1000 |         10 |
+|  6 | abhishek | pathak  | work       |        28 |   5000 |         60 |
++----+----------+---------+------------+-----------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from abhishek where surname="pathak";
++----+----------+---------+------------+-----------+--------+------------+
+| id | name     | surname | location   | mobo_code | salary | popularity |
++----+----------+---------+------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai |        91 |   1000 |         10 |
+|  6 | abhishek | pathak  | work       |        28 |   5000 |         60 |
++----+----------+---------+------------+-----------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select distinct yash from abhishek;
+ERROR 1054 (42S22): Unknown column 'yash' in 'field list'
+mysql> select distinct "yash" from abhishek;
++------+
+| yash |
++------+
+| yash |
++------+
+1 row in set (0.00 sec)
+
+mysql> select distinct  from abhishek;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from abhishek' at line 1
+mysql> select distinct col  from abhishek;
+ERROR 1054 (42S22): Unknown column 'col' in 'field list'
+mysql> select distinct 6  from abhishek;
++---+
+| 6 |
++---+
+| 6 |
++---+
+1 row in set (0.00 sec)
+
+mysql> select distinct "surname"  from abhishek;
++---------+
+| surname |
++---------+
+| surname |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select distinct surname  from abhishek;
++---------+
+| surname |
++---------+
+| pathak  |
+| boricha |
+| navale  |
+| molawde |
+| tiwari  |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct(count(surname)) from abhishek;
++------------------+
+| (count(surname)) |
++------------------+
+|                7 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select name,char_length(name) from abhishek;
++----------+-------------------+
+| name     | char_length(name) |
++----------+-------------------+
+| abhishek |                 8 |
+| jash     |                 4 |
+| aniket   |                 6 |
+| yash     |                 4 |
+| Krishna  |                 7 |
+| abhishek |                 8 |
+| yash     |                 4 |
++----------+-------------------+
+7 rows in set (0.00 sec)
+
+mysql> select name,surname,concat(name,surname) as full_name from abhishek;
++----------+---------+----------------+
+| name     | surname | full_name      |
++----------+---------+----------------+
+| abhishek | pathak  | abhishekpathak |
+| jash     | boricha | jashboricha    |
+| aniket   | navale  | aniketnavale   |
+| yash     | molawde | yashmolawde    |
+| Krishna  | tiwari  | Krishnatiwari  |
+| abhishek | pathak  | abhishekpathak |
+| yash     | molawde | yashmolawde    |
++----------+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> select name,surname,concat ws (' ',name,surname) as full_name from abhishek;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(' ',name,surname) as full_name from abhishek' at line 1
+mysql> select name,surname,concat_ws (' ',name,surname) as full_name from abhishek;
++----------+---------+-----------------+
+| name     | surname | full_name       |
++----------+---------+-----------------+
+| abhishek | pathak  | abhishek pathak |
+| jash     | boricha | jash boricha    |
+| aniket   | navale  | aniket navale   |
+| yash     | molawde | yash molawde    |
+| Krishna  | tiwari  | Krishna tiwari  |
+| abhishek | pathak  | abhishek pathak |
+| yash     | molawde | yash molawde    |
++----------+---------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> select name,surname,field ('abhishek',name,surname) as field_name from abhishek;
++----------+---------+------------+
+| name     | surname | field_name |
++----------+---------+------------+
+| abhishek | pathak  |          1 |
+| jash     | boricha |          0 |
+| aniket   | navale  |          0 |
+| yash     | molawde |          0 |
+| Krishna  | tiwari  |          0 |
+| abhishek | pathak  |          1 |
+| yash     | molawde |          0 |
++----------+---------+------------+
+7 rows in set (0.01 sec)
+
+mysql> select format(salary,0) from abhishek;
++------------------+
+| format(salary,0) |
++------------------+
+| 1,000            |
+| 2,000            |
+| 3,000            |
+| 4,000            |
+| 0                |
+| 5,000            |
+| 7,000            |
++------------------+
+7 rows in set (0.10 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> Select name, INSTR(name, 'a'), LOCATE('hi', nameFirstName) from Person), POSITION('al' IN
+    -> FirstName) from Person
+    -> FirstName) from Person
+    -> FirstName) from Person
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '), POSITION('al' IN
+FirstName) from Person
+FirstName) from Person
+FirstName) fro' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select name, lower(name) as lower, upper(name) as upper from abhishek;
++----------+----------+----------+
+| name     | lower    | upper    |
++----------+----------+----------+
+| abhishek | abhishek | ABHISHEK |
+| jash     | jash     | JASH     |
+| aniket   | aniket   | ANIKET   |
+| yash     | yash     | YASH     |
+| Krishna  | krishna  | KRISHNA  |
+| abhishek | abhishek | ABHISHEK |
+| yash     | yash     | YASH     |
++----------+----------+----------+
+7 rows in set (0.00 sec)
+
+mysql> Select CHAR_LENGTH('€'), Length('€')
+    -> ;
++------------------+-------------+
+| CHAR_LENGTH('?') | Length('?') |
++------------------+-------------+
+|                1 |           1 |
++------------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> Select Name, surname, CONCAT(LEFT(Name, 3), RIGHT(surname, 2)) as LoginID from abhishek;
++----------+---------+---------+
+| Name     | surname | LoginID |
++----------+---------+---------+
+| abhishek | pathak  | abhak   |
+| jash     | boricha | jasha   |
+| aniket   | navale  | anile   |
+| yash     | molawde | yasde   |
+| Krishna  | tiwari  | Kriri   |
+| abhishek | pathak  | abhak   |
+| yash     | molawde | yasde   |
++----------+---------+---------+
+7 rows in set (0.10 sec)
+
+mysql> Select LTRIM(' abc ') as L, RTRIM(' abc ') as R, TRIM(' abc ') as T;
++------+------+------+
+| L    | R    | T    |
++------+------+------+
+| abc  |  abc | abc  |
++------+------+------+
+1 row in set (0.13 sec)
+
+mysql> Select Name, SUBSTRING(Name, 2, 4) as a sub from abhishek;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sub from abhishek' at line 1
+mysql> Select Name, SUBSTRING(Name, 2, 4) as  sub from abhishek;
++----------+------+
+| Name     | sub  |
++----------+------+
+| abhishek | bhis |
+| jash     | ash  |
+| aniket   | nike |
+| yash     | ash  |
+| Krishna  | rish |
+| abhishek | bhis |
+| yash     | ash  |
++----------+------+
+7 rows in set (0.00 sec)
+
+mysql> Select name,replace(name,'a'.'gu') from abhishek;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.'gu') from abhishek' at line 1
+mysql> Select name,replace(name,'a','gu') from abhishek;
++----------+------------------------+
+| name     | replace(name,'a','gu') |
++----------+------------------------+
+| abhishek | gubhishek              |
+| jash     | jgush                  |
+| aniket   | guniket                |
+| yash     | ygush                  |
+| Krishna  | Krishngu               |
+| abhishek | gubhishek              |
+| yash     | ygush                  |
++----------+------------------------+
+7 rows in set (0.00 sec)
+
+mysql> Select Name, REVERSE(Name) from abhishek;
++----------+---------------+
+| Name     | REVERSE(Name) |
++----------+---------------+
+| abhishek | kehsihba      |
+| jash     | hsaj          |
+| aniket   | tekina        |
+| yash     | hsay          |
+| Krishna  | anhsirK       |
+| abhishek | kehsihba      |
+| yash     | hsay          |
++----------+---------------+
+7 rows in set (0.03 sec)
+
+mysql> Select Name, surname, SUBSTR(Name, 2), SUBSTRING(Name, 2, 2) from abhishek;
++----------+---------+-----------------+-----------------------+
+| Name     | surname | SUBSTR(Name, 2) | SUBSTRING(Name, 2, 2) |
++----------+---------+-----------------+-----------------------+
+| abhishek | pathak  | bhishek         | bh                    |
+| jash     | boricha | ash             | as                    |
+| aniket   | navale  | niket           | ni                    |
+| yash     | molawde | ash             | as                    |
+| Krishna  | tiwari  | rishna          | ri                    |
+| abhishek | pathak  | bhishek         | bh                    |
+| yash     | molawde | ash             | as                    |
++----------+---------+-----------------+-----------------------+
+7 rows in set (0.00 sec)
+
+mysql> Select Name, surname, SUBSTR(Name, 7), SUBSTRING(Name, 2, 4) from abhishek;
++----------+---------+-----------------+-----------------------+
+| Name     | surname | SUBSTR(Name, 7) | SUBSTRING(Name, 2, 4) |
++----------+---------+-----------------+-----------------------+
+| abhishek | pathak  | ek              | bhis                  |
+| jash     | boricha |                 | ash                   |
+| aniket   | navale  |                 | nike                  |
+| yash     | molawde |                 | ash                   |
+| Krishna  | tiwari  | a               | rish                  |
+| abhishek | pathak  | ek              | bhis                  |
+| yash     | molawde |                 | ash                   |
++----------+---------+-----------------+-----------------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT ABS(4);
++--------+
+| ABS(4) |
++--------+
+|      4 |
++--------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT ABS(-34;)
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql>  SELECT ABS(-54);
++----------+
+| ABS(-54) |
++----------+
+|       54 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CEIL(-2.56);
++-------------+
+| CEIL(-2.56) |
++-------------+
+|          -2 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CEILING(4.37);
++---------------+
+| CEILING(4.37) |
++---------------+
+|             5 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CONV(4,12,3);
++--------------+
+| CONV(4,12,3) |
++--------------+
+| 11           |
++--------------+
+1 row in set (0.03 sec)
+
+mysql> SELECT COS(65);
++--------------------+
+| COS(65)            |
++--------------------+
+| -0.562453851238172 |
++--------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT COT(180);
++--------------------+
+| COT(180)           |
++--------------------+
+| 0.7469988144140444 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DEGREES(PI());
++---------------+
+| DEGREES(PI()) |
++---------------+
+|           180 |
++---------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT EXP(5);
++-------------------+
+| EXP(5)            |
++-------------------+
+| 148.4131591025766 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT FLOOR(9.23);
++-------------+
+| FLOOR(9.23) |
++-------------+
+|           9 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT FORMAT(582345.654324,2);
++-------------------------+
+| FORMAT(582345.654324,2) |
++-------------------------+
+| 582,345.65              |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> ELECT GREATEST(6,12,34,56,82,100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ELECT GREATEST(6,12,34,56,82,100)' at line 1
+mysql> SELECT GREATEST(6,12,34,56,82,100);
++-----------------------------+
+| GREATEST(6,12,34,56,82,100) |
++-----------------------------+
+|                         100 |
++-----------------------------+
+1 row in set (0.11 sec)
+
+mysql> Code:
+    -> SELECT INTERVAL(5,2,5,7,8,10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Code:
+SELECT INTERVAL(5,2,5,7,8,10)' at line 1
+mysql> SELECT INTERVAL(5,2,5,7,8,10);
++------------------------+
+| INTERVAL(5,2,5,7,8,10) |
++------------------------+
+|                      2 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LEAST(7,13,54,16,89,57);
++-------------------------+
+| LEAST(7,13,54,16,89,57) |
++-------------------------+
+|                       7 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LOG(54);
++--------------------+
+| LOG(54)            |
++--------------------+
+| 3.9889840465642745 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LOG10(50);
++--------------------+
+| LOG10(50)          |
++--------------------+
+| 1.6989700043360187 |
++--------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT MOD(25,2);
++-----------+
+| MOD(25,2) |
++-----------+
+|         1 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT OCT(21);
++---------+
+| OCT(21) |
++---------+
+| 25      |
++---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT PI();
++----------+
+| PI()     |
++----------+
+| 3.141593 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT POW(2,5);
++----------+
+| POW(2,5) |
++----------+
+|       32 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT POWER(3,4);
++------------+
+| POWER(3,4) |
++------------+
+|         81 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT RADIANS(45);
++--------------------+
+| RADIANS(45)        |
++--------------------+
+| 0.7853981633974483 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT ROUND(88.604);
++---------------+
+| ROUND(88.604) |
++---------------+
+|            89 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SIN(45);
++--------------------+
+| SIN(45)            |
++--------------------+
+| 0.8509035245341184 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SQRT(121);
++-----------+
+| SQRT(121) |
++-----------+
+|        11 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TAN(60);
++-------------------+
+| TAN(60)           |
++-------------------+
+| 0.320040389379563 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TRUNCATE(4.129065,3);
++----------------------+
+| TRUNCATE(4.129065,3) |
++----------------------+
+|                4.129 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TRUNCATE(4.129065,0);
++----------------------+
+| TRUNCATE(4.129065,0) |
++----------------------+
+|                    4 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> SELECT CURRENT_DATE();
++----------------+
+| CURRENT_DATE() |
++----------------+
+| 2021-02-14     |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT NOW();
++---------------------+
+| NOW()               |
++---------------------+
+| 2021-02-14 12:25:39 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_ADD("2020-04-30 08:30:20", INTERVAL 10 MINUTE);
++-----------------------------------------------------+
+| DATE_ADD("2020-04-30 08:30:20", INTERVAL 10 MINUTE) |
++-----------------------------------------------------+
+| 2020-04-30 08:40:20                                 |
++-----------------------------------------------------+
+1 row in set (0.04 sec)
+
+mysql> SELECT DATE_ADD("2020-03-25 10:15:10", INTERVAL -2 HOUR);
++---------------------------------------------------+
+| DATE_ADD("2020-03-25 10:15:10", INTERVAL -2 HOUR) |
++---------------------------------------------------+
+| 2020-03-25 08:15:10                               |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_FORMAT("2020-03-25", "%M %D %Y");
++---------------------------------------+
+| DATE_FORMAT("2020-03-25", "%M %D %Y") |
++---------------------------------------+
+| March 25th 2020                       |
++---------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATE_SUB("2020-04-28", INTERVAL 5 DAY);
++----------------------------------------+
+| DATE_SUB("2020-04-28", INTERVAL 5 DAY) |
++----------------------------------------+
+| 2020-04-23                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DATEDIFF ("2020-04-15 06:10:30", "2020-04-12");
++------------------------------------------------+
+| DATEDIFF ("2020-04-15 06:10:30", "2020-04-12") |
++------------------------------------------------+
+|                                              3 |
++------------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql>

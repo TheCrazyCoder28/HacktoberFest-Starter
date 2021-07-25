@@ -1,0 +1,1110 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 62
+Server version: 8.0.23 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> create database scorcism;
+Query OK, 1 row affected (0.15 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| scorcism           |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use scorcism;
+Database changed
+mysql> select * from scorcism;
+ERROR 1146 (42S02): Table 'scorcism.scorcism' doesn't exist
+mysql> shoe tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shoe tables' at line 1
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table abhishek;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table abhishek
+    -> id int not null,
+    -> name varchar(20),
+    -> surname varchar(20),
+    -> location varchar(20),
+    -> mobo_code float;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id int not null,
+name varchar(20),
+surname varchar(20),
+location varchar(20),
+mo' at line 2
+mysql> create table abhishek
+    -> id int,
+    -> name varchar(20),
+    -> surname varchar(20),
+    -> location varchar(20),
+    -> mobo_code float;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'id int,
+name varchar(20),
+surname varchar(20),
+location varchar(20),
+mobo_code f' at line 2
+mysql> create table abhishek(
+    -> id int not null,
+    -> name varchar(20),
+    -> surname varchar(20),
+    -> location varchar(20),
+    -> mobo_code float);
+Query OK, 0 rows affected (1.56 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_scorcism |
++--------------------+
+| abhishek           |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from abhishek;
+Empty set (0.01 sec)
+
+
+
+mysql> insert into abhishek
+    -> values
+    -> (01,"abhishek","pathak","202-mumbai",+91);
+ERROR 1265 (01000): Data truncated for column 'location' at row 1
+mysql> alter table abhishek modify location text;
+Query OK, 0 rows affected (2.60 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into abhishek
+    -> values
+    -> (01,"abhishek","pathak","202-mumbai",+91);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+------------+-----------+
+| id | name     | surname | location   | mobo_code |
++----+----------+---------+------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai |        91 |
++----+----------+---------+------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> insert into abhishek values (02,"jash","boricha","89A-sandurst Road",91);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
++----+----------+---------+-------------------+-----------+
+2 rows in set (0.00 sec)
+
+
+mysql> insert into abhishek values (03,"aniket","navale","69-Ghatkopar",92);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
++----+----------+---------+-------------------+-----------+
+3 rows in set (0.11 sec)
+
+mysql> insert into abhishek values (04,"yash","molawde","303A-uk",911);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
++----+----------+---------+-------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into abhishek values (05,"Krishna","tiwari","us",89);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
+|  5 | Krishna  | tiwari  | us                |        89 |
++----+----------+---------+-------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create table abhishek2(
+    -> id int not null,
+    -> name varchar(20),
+    -> surname varchar(20),
+    -> location text,
+    -> mobo_code float);
+Query OK, 0 rows affected (1.43 sec)
+
+mysql> insert into abhishek2 values (01,"Deepak","gupta","203-Colaba",91);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into abhishek2 values (02,"vnay","vnay","nahi-pata",99);
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into abhishek2 values (03,"deepak","gupta","59-Lokhandwala",125);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into abhishek2 values (04,"krishna","tiwari","hello",125);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into abhishek2 values (05,"abhishek","pathak","no-work",27);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
+|  5 | Krishna  | tiwari  | us                |        89 |
++----+----------+---------+-------------------+-----------+
+5 rows in set (0.12 sec)
+
+mysql> select * from abhishek2;
++----+----------+---------+----------------+-----------+
+| id | name     | surname | location       | mobo_code |
++----+----------+---------+----------------+-----------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |
+|  4 | krishna  | tiwari  | hello          |       125 |
+|  5 | abhishek | pathak  | no-work        |        27 |
++----+----------+---------+----------------+-----------+
+5 rows in set (0.11 sec)
+
+mysql> select * from abhishek join select * from abhishek2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select * from abhishek2' at line 1
+mysql> select * from abhishek union select * from abhishek2;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
+|  5 | Krishna  | tiwari  | us                |        89 |
+|  1 | Deepak   | gupta   | 203-Colaba        |        91 |
+|  2 | vnay     | vnay    | nahi-pata         |        99 |
+|  3 | deepak   | gupta   | 59-Lokhandwala    |       125 |
+|  4 | krishna  | tiwari  | hello             |       125 |
+|  5 | abhishek | pathak  | no-work           |        27 |
++----+----------+---------+-------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> select * from abhishek where mobo_code<99;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  5 | Krishna  | tiwari  | us                |        89 |
++----+----------+---------+-------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select max(mobo_code) from abhishek;
++----------------+
+| max(mobo_code) |
++----------------+
+|            911 |
++----------------+
+1 row in set (0.02 sec)
+
+mysql> select min(mobo_code) from abhishek;
++----------------+
+| min(mobo_code) |
++----------------+
+|             89 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(mobo_code) from abhishek;
++----------------+
+| avg(mobo_code) |
++----------------+
+|          254.8 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from abhishek ;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
+|  5 | Krishna  | tiwari  | us                |        89 |
++----+----------+---------+-------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into abhishek values (05,"abhishek","pathak","work",28);
+Query OK, 1 row affected (0.34 sec)
+
+mysql> insert into abhishek values (04,"yash","molawde","bootcamp",28);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from abhishek ;
++----+----------+---------+-------------------+-----------+
+| id | name     | surname | location          | mobo_code |
++----+----------+---------+-------------------+-----------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |
+|  4 | yash     | molawde | 303A-uk           |       911 |
+|  5 | Krishna  | tiwari  | us                |        89 |
+|  5 | abhishek | pathak  | work              |        28 |
+|  4 | yash     | molawde | bootcamp          |        28 |
++----+----------+---------+-------------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> select name from abhishek order by mobo_code desc ;
++----------+
+| name     |
++----------+
+| yash     |
+| aniket   |
+| abhishek |
+| jash     |
+| Krishna  |
+| abhishek |
+| yash     |
++----------+
+7 rows in set (0.00 sec)
+
+
+Query OK, 0 rows affected (1.63 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   NULL |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   NULL |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   NULL |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.14 sec)
+
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   NULL |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   NULL |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   NULL |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=1000 where id=1;
+Query OK, 1 row affected (0.22 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   NULL |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   NULL |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.11 sec)
+
+mysql> update abhishek set salary=2000 where id=2;select * from abhishek;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   NULL |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=3000 where id=3 ; select * from abhishek;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   NULL |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=4000 where id=4 ; select * from abhishek;
+Query OK, 2 rows affected (0.20 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |   NULL |
+|  5 | abhishek | pathak  | work              |        28 |   NULL |
+|  4 | yash     | molawde | bootcamp          |        28 |   4000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=00 where id=5 ; select * from abhishek;
+Query OK, 2 rows affected (0.23 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  5 | abhishek | pathak  | work              |        28 |      0 |
+|  4 | yash     | molawde | bootcamp          |        28 |   4000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set id=6 where location="work";
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |      0 |
+|  4 | yash     | molawde | bootcamp          |        28 |   4000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.10 sec)
+
+mysql> update abhishek set id=7 where location="bootcamp";
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |      0 |
+|  7 | yash     | molawde | bootcamp          |        28 |   4000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=5000 where id=6 ; select * from abhishek;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   4000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=7000 where id=7 ; select * from abhishek;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek where salary
+    -> >= 3000;
++----+----------+---------+--------------+-----------+--------+
+| id | name     | surname | location     | mobo_code | salary |
++----+----------+---------+--------------+-----------+--------+
+|  3 | aniket   | navale  | 69-Ghatkopar |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk      |       911 |   4000 |
+|  6 | abhishek | pathak  | work         |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp     |        28 |   7000 |
++----+----------+---------+--------------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from abhishek order by salary asc;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek order by salary desc;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek group by id;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek group by salary;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek group by name;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
++----+----------+---------+-------------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select max(salary) from abhishek group;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select max(salary) from abhishek;
++-------------+
+| max(salary) |
++-------------+
+|        7000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from abhishek;
++-------------+
+| avg(salary) |
++-------------+
+|   3142.8571 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary),name from abhishek group by name;
++-------------+----------+
+| max(salary) | name     |
++-------------+----------+
+|        5000 | abhishek |
+|        2000 | jash     |
+|        3000 | aniket   |
+|        7000 | yash     |
+|           0 | Krishna  |
++-------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select max(salary),name from abhishek group by name having count(name)>=2;
++-------------+----------+
+| max(salary) | name     |
++-------------+----------+
+|        5000 | abhishek |
+|        7000 | yash     |
++-------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+
+| id | name     | surname | location          | mobo_code | salary |
++----+----------+---------+-------------------+-----------+--------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |
++----+----------+---------+-------------------+-----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select name,surname,salary from abhishek where salary > (select avg(salary) from abhishek);
++----------+---------+--------+
+| name     | surname | salary |
++----------+---------+--------+
+| yash     | molawde |   4000 |
+| abhishek | pathak  |   5000 |
+| yash     | molawde |   7000 |
++----------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select name from abhishek where name in (select name from abhishek2);
++----------+
+| name     |
++----------+
+| abhishek |
+| Krishna  |
+| abhishek |
++----------+
+3 rows in set (0.13 sec)
+
+mysql> alter table abhishek add column popularity int;
+Query OK, 0 rows affected (1.60 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |       NULL |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |       NULL |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |       NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |       NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |       NULL |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.01 sec)
+
+mysql> update abhishek set popularity=10 where id=1;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |       NULL |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |       NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |       NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |       NULL |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=20 where id=2; select * from abhishek;
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |       NULL |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |       NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |       NULL |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=30 where id=3; select * from abhishek;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |       NULL |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |       NULL |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=40 where id=4; select * from abhishek;
+Query OK, 1 row affected (0.34 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |       NULL |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=50 where id=5; select * from abhishek;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=60,70 where id=6,7; select * from abhishek;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '70 where id=6,7' at line 1
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |       NULL |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=60 where id=6; select * from abhishek;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |       NULL |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set popularity=70 where id=7; select * from abhishek;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select id,name,popularity from abhishek where popularity in (select avg(popularity) from abhishek2);
++----+----------+------------+
+| id | name     | popularity |
++----+----------+------------+
+|  1 | abhishek |         10 |
+|  2 | jash     |         20 |
+|  3 | aniket   |         30 |
+|  4 | yash     |         40 |
+|  5 | Krishna  |         50 |
+|  6 | abhishek |         60 |
+|  7 | yash     |         70 |
++----+----------+------------+
+7 rows in set (0.10 sec)
+
+mysql> select avg(popularity) from abhishek;
++-----------------+
+| avg(popularity) |
++-----------------+
+|         40.0000 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,popularity from abhishek where popularity > (select avg(popularity) from abhishek2);
+Empty set (0.00 sec)
+
+mysql> select id,name,popularity from abhishek where popularity in (select avg(popularity) from abhishek);
++----+------+------------+
+| id | name | popularity |
++----+------+------------+
+|  4 | yash |         40 |
++----+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,popularity from abhishek where popularity between (select avg(popularity) from abhishek) and 45;
++----+------+------------+
+| id | name | popularity |
++----+------+------------+
+|  4 | yash |         40 |
++----+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from abhishek2;
++----+----------+---------+----------------+-----------+
+| id | name     | surname | location       | mobo_code |
++----+----------+---------+----------------+-----------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |
+|  4 | krishna  | tiwari  | hello          |       125 |
+|  5 | abhishek | pathak  | no-work        |        27 |
++----+----------+---------+----------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> alter table abhishek2 add column salary int;
+Query OK, 0 rows affected (1.47 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from abhishek2;
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   NULL |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   NULL |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   NULL |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=1000 where id=1;select * from abhishek;
+Query OK, 0 rows affected (0.14 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> update abhishek set salary=1000 where id=1;select * from abhishek2;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   NULL |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   NULL |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   NULL |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek2 set salary=1000 where id=1;select * from abhishek2;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   NULL |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   NULL |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek2 set salary=2000 where id=2;select * from abhishek2;
+Query OK, 1 row affected (0.24 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   NULL |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek3 set salary=2000 where id=3;select * from abhishek2;
+ERROR 1146 (42S02): Table 'scorcism.abhishek3' doesn't exist
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   NULL |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek2 set salary=3000 where id=3;select * from abhishek2;
+Query OK, 1 row affected (0.18 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   3000 |
+|  4 | krishna  | tiwari  | hello          |       125 |   NULL |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek2 set salary=4000 where id=4;select * from abhishek2;
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   3000 |
+|  4 | krishna  | tiwari  | hello          |       125 |   4000 |
+|  5 | abhishek | pathak  | no-work        |        27 |   NULL |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> update abhishek2 set salary=5000 where id=5;select * from abhishek2;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   3000 |
+|  4 | krishna  | tiwari  | hello          |       125 |   4000 |
+|  5 | abhishek | pathak  | no-work        |        27 |   5000 |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+
+mysql> select * from abhishek2;
++----+----------+---------+----------------+-----------+--------+
+| id | name     | surname | location       | mobo_code | salary |
++----+----------+---------+----------------+-----------+--------+
+|  1 | Deepak   | gupta   | 203-Colaba     |        91 |   1000 |
+|  2 | vnay     | vnay    | nahi-pata      |        99 |   2000 |
+|  3 | deepak   | gupta   | 59-Lokhandwala |       125 |   3000 |
+|  4 | krishna  | tiwari  | hello          |       125 |   4000 |
+|  5 | abhishek | pathak  | no-work        |        27 |   5000 |
++----+----------+---------+----------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from abhishek;
++----+----------+---------+-------------------+-----------+--------+------------+
+| id | name     | surname | location          | mobo_code | salary | popularity |
++----+----------+---------+-------------------+-----------+--------+------------+
+|  1 | abhishek | pathak  | 202-mumbai        |        91 |   1000 |         10 |
+|  2 | jash     | boricha | 89A-sandurst Road |        91 |   2000 |         20 |
+|  3 | aniket   | navale  | 69-Ghatkopar      |        92 |   3000 |         30 |
+|  4 | yash     | molawde | 303A-uk           |       911 |   4000 |         40 |
+|  5 | Krishna  | tiwari  | us                |        89 |      0 |         50 |
+|  6 | abhishek | pathak  | work              |        28 |   5000 |         60 |
+|  7 | yash     | molawde | bootcamp          |        28 |   7000 |         70 |
++----+----------+---------+-------------------+-----------+--------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select id,name,surname from abhishek2 where salary >= (salary avg(salary) from abhishek);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'avg(salary) from abhishek)' at line 1
+mysql> select id,name,surname from abhishek2 where salary >= (select avg(salary) from abhishek);
++----+----------+---------+
+| id | name     | surname |
++----+----------+---------+
+|  4 | krishna  | tiwari  |
+|  5 | abhishek | pathak  |
++----+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select id,name,surname,salary from abhishek2 where salary >= (select avg(salary) from abhishek);
++----+----------+---------+--------+
+| id | name     | surname | salary |
++----+----------+---------+--------+
+|  4 | krishna  | tiwari  |   4000 |
+|  5 | abhishek | pathak  |   5000 |
++----+----------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select avg(salary) from abhishek;
++-------------+
+| avg(salary) |
++-------------+
+|   3142.8571 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,surname,salary from abhishek2 where salary >= (select avg(popularity) from abhishek);
++----+----------+---------+--------+
+| id | name     | surname | salary |
++----+----------+---------+--------+
+|  1 | Deepak   | gupta   |   1000 |
+|  2 | vnay     | vnay    |   2000 |
+|  3 | deepak   | gupta   |   3000 |
+|  4 | krishna  | tiwari  |   4000 |
+|  5 | abhishek | pathak  |   5000 |
++----+----------+---------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select avg(popularity) from abhishek;
++-----------------+
+| avg(popularity) |
++-----------------+
+|         40.0000 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,surname,salary from abhishek2 where salary = (select avg(popularity) from abhishek);
+Empty set (0.00 sec)
+
+mysql> select * from abhishek where name like "%y%"
+    -> ;
++----+------+---------+----------+-----------+--------+------------+
+| id | name | surname | location | mobo_code | salary | popularity |
++----+------+---------+----------+-----------+--------+------------+
+|  4 | yash | molawde | 303A-uk  |       911 |   4000 |         40 |
+|  7 | yash | molawde | bootcamp |        28 |   7000 |         70 |
++----+------+---------+----------+-----------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql>

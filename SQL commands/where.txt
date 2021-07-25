@@ -1,0 +1,32 @@
+mysql> select * from employee;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
+|    103 | yash     | molawde  |     30 |
+|    104 | krishna  | nohara   |      0 |
+|    106 | nashita  | patel    |     50 |
+|    102 | JASH     | boricha  |     20 |
+|    105 | aniket   | nawale   |     80 |
+|    107 | JASH     | bori     |     90 |
++--------+----------+----------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from employee where salary>20;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    103 | yash     | molawde  |     30 |
+|    106 | nashita  | patel    |     50 |
+|    105 | aniket   | nawale   |     80 |
+|    107 | JASH     | bori     |     90 |
++--------+----------+----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee where emp_id = 101;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
++--------+----------+----------+--------+
+1 row in set (0.00 sec)

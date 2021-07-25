@@ -1,0 +1,16 @@
+
+mysql> select name,char_length(name) from abhishek;
++----------+-------------------+
+| name     | char_length(name) |
++----------+-------------------+
+| abhishek |                 8 |
+| jash     |                 4 |
+| aniket   |                 6 |
+| yash     |                 4 |
+| Krishna  |                 7 |
+| abhishek |                 8 |
+| yash     |                 4 |
++----------+-------------------+
+7 rows in set (0.00 sec)
+
+mysql>

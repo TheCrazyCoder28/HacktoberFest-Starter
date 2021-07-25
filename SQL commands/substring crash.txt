@@ -1,0 +1,18 @@
+mysql> select * from bank_details limit 1;
++----------+----------+-------+---------------+----------------------+--------------+
+| product  | quantity | price | purchase_cost | estimated_sale_price | geo_location |
++----------+----------+-------+---------------+----------------------+--------------+
+| pay_card |        3 |   330 |       8008.00 |                 9009 | NULL         |
++----------+----------+-------+---------------+----------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select substring(product,1,5) from bank_details;
++------------------------+
+| substring(product,1,5) |
++------------------------+
+| pay_c                  |
+| paypo                  |
++------------------------+
+2 rows in set (0.00 sec)
+
+mysql>

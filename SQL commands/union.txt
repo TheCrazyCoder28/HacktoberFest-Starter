@@ -1,0 +1,17 @@
+
+mysql> select emp_name from employee union select emp_name from employees;
++----------+
+| emp_name |
++----------+
+| scor     |
+| yash     |
+| krishna  |
+| nashita  |
+| JASH     |
+| aniket   |
+| abhi     |
+| ashish   |
++----------+
+8 rows in set (0.12 sec)
+
+mysql>

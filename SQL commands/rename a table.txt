@@ -1,0 +1,29 @@
+
+mysql> show tables;
++-----------------+
+| Tables_in_hello |
++-----------------+
+| acting          |
+| department      |
+| employee        |
+| employees       |
++-----------------+
+4 rows in set (0.12 sec)
+
+
+mysql> alter table acting rename to noacting;
+Query OK, 0 rows affected (1.09 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_hello |
++-----------------+
+| department      |
+| employee        |
+| employees       |
+| noacting        |
++-----------------+
+4 rows in set (0.06 sec)
+
+mysql>
+

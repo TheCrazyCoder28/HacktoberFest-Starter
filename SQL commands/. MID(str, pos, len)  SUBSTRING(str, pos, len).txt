@@ -1,0 +1,15 @@
+mysql> Select Name, SUBSTRING(Name, 2, 4) as  sub from abhishek;
++----------+------+
+| Name     | sub  |
++----------+------+
+| abhishek | bhis |
+| jash     | ash  |
+| aniket   | nike |
+| yash     | ash  |
+| Krishna  | rish |
+| abhishek | bhis |
+| yash     | ash  |
++----------+------+
+7 rows in set (0.00 sec)
+
+mysql>

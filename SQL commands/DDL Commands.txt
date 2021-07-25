@@ -1,0 +1,131 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+8 rows in set (0.01 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use hello;
+Database changed
+mysql> CREATE TABLE employees(
+    -> emp_id int not null,
+    -> first_name varchar(20),
+    -> last_name varchar(20),
+    -> salary int,
+    -> primary key (emp_id));
+Query OK, 0 rows affected (2.18 sec)
+
+mysql> select * from employees;
+Empty set (0.35 sec)
+
+mysql> describe employees;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(20) | YES  |     | NULL    |       |
+| last_name  | varchar(20) | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.12 sec)
+
+mysql> ALTER TABLE employees ADD COLUMN contact int(10);
+Query OK, 0 rows affected, 1 warning (0.77 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> describe employees;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(20) | YES  |     | NULL    |       |
+| last_name  | varchar(20) | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
+| contact    | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.23 sec)
+
+mysql> select * from employees;
+Empty set (0.05 sec)
+
+mysql> ALTER TABLE employees RENAME COLUMN contact TO job_code;
+Query OK, 0 rows affected (1.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employees;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(20) | YES  |     | NULL    |       |
+| last_name  | varchar(20) | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
+| job_code   | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.13 sec)
+
+mysql> TRUNCATE TABLE employees;
+Query OK, 0 rows affected (1.55 sec)
+
+mysql> select * from employees;
+Empty set (0.29 sec)
+
+mysql> describe employees;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(20) | YES  |     | NULL    |       |
+| last_name  | varchar(20) | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
+| job_code   | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.08 sec)
+
+mysql> drop table employees;
+Query OK, 0 rows affected (1.20 sec)
+
+mysql> describe employees;
+ERROR 1146 (42S02): Table 'hello.employees' doesn't exist
+mysql> select * from employees;
+ERROR 1146 (42S02): Table 'hello.employees' doesn't exist
+mysql>\

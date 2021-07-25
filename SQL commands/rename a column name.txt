@@ -1,0 +1,17 @@
+mysql> alter table hello rename column surname to last_name;
+Query OK, 0 rows affected (1.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from hello;
++----+--------+-----------+----------+
+| id | name   | last_name | loc      |
++----+--------+-----------+----------+
+|  1 | scor   | cism      | virar    |
+|  2 | jash   | boricha   | sandurst |
+|  3 | yash   | molawde   | byculla  |
+|  4 | aniket | navale    | rayroad  |
+|  5 | ashish | jha       | jpnagar  |
++----+--------+-----------+----------+
+5 rows in set (0.05 sec)
+
+mysql>
