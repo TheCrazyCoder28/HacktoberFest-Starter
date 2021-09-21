@@ -1,4 +1,4 @@
-# HacktoberFest-Starter-2021
+# HacktoberFest-Starter
 This Is an Open source Repository For Hacktoberfest Where You can Contribute.
 ---
 ## Method 1
