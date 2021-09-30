@@ -12,7 +12,6 @@ class Product{
            cout<<"Product Id :"<<prodId<<endl;
            cout<<"Product Price :"<<prodPrice<<endl;
         }
-
 };
 void Product::setdata(int id1, float price1){
 prodId=id1;
