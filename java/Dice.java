@@ -15,38 +15,38 @@ import javafx.stage.Stage;
 public class Dice extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-	      //Setting the image view 
+	      // Setting the image view 
 	      ImageView imageView = new ImageView(new Image(new FileInputStream("src/images/0.jpg"))); 
-	      //Setting the position of the image 
+	      // Setting the position of the image 
 	      imageView.setX(0); 
 	      imageView.setY(0); 
-	      //setting the fit height and width of the image view 
+	      // Setting the fit height and width of the image view 
 	      imageView.setFitHeight(300); 
 	      imageView.setFitWidth(300); 
-	      //Setting the preserve ratio of the image view 
+	      // Setting the preserve ratio of the image view 
 	      imageView.setPreserveRatio(true);  	      
-	      //Setting the image view2 
+	      // Setting the image view2 
 	      ImageView imageView1 = new ImageView(new Image(new FileInputStream("src/images/0.jpg"))); 
-	      //Setting the position of the image 
+	      // Setting the position of the image 
 	      imageView1.setX(0); 
 	      imageView1.setY(0); 
-	      //setting the fit height and width of the image view 
+	      // Setting the fit height and width of the image view 
 	      imageView1.setFitHeight(300); 
 	      imageView1.setFitWidth(300); 
-	      //Setting the preserve ratio of the image view 
+	      // Setting the preserve ratio of the image view 
 	      imageView1.setPreserveRatio(true);  
-	      //Align images Horizontally with spacing 20 and padding 25
+	      // Align images Horizontally with spacing 20 and padding 25
 	      HBox images = new HBox(20);
 	      images.setPadding(new Insets(25));
 	      images.getChildren().addAll(imageView,imageView1);	      
 	      Button play = new Button("Play");
 	      play.setMinHeight(20);
 	      play.setMinWidth(200);
-	      //Align Images hbox with button in center 
+	      // Align Images hbox with button in center 
 	      VBox root = new VBox(10);
 	      root.getChildren().addAll(images,play);
 	      root.setAlignment(Pos.CENTER);
-	      //Add everything to application
+	      // Add everything to application
 		  Scene scene=new Scene(root,670,400);  
 		  primaryStage.setScene(scene);  
 		  primaryStage.setTitle("Dice Game");  
