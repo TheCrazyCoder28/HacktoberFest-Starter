@@ -1,0 +1,109 @@
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | NULL    |
+|    104 | krishna  | nohara   |      0 | NULL    |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | NULL    |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> update table set dept_id="tax" where emp_id= 103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table set dept_id="tax" where emp_id= 103' at line 1
+mysql> update employee set dept_id="tax" where emp_id= 103;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tax     |
+|    104 | krishna  | nohara   |      0 | NULL    |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | NULL    |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.13 sec)
+
+mysql> update employee set dept_id="tech" where emp_id= 103;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tech    |
+|    104 | krishna  | nohara   |      0 | NULL    |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | NULL    |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set dept_id="tax" where emp_id= 102;
+Query OK, 1 row affected (0.23 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tech    |
+|    104 | krishna  | nohara   |      0 | NULL    |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | tax     |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set dept_id="tp" where emp_id= 104;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tech    |
+|    104 | krishna  | nohara   |      0 | tp      |
+|    106 | nashita  | patel    |     50 | NULL    |
+|    102 | JASH     | boricha  |     20 | tax     |
+|    105 | aniket   | nawale   |     80 | NULL    |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> update employee set dept_id="tp" where emp_id= 105;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set dept_id="support" where emp_id= 106;
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+---------+
+| emp_id | emp_name | emp_last | salary | dept_id |
++--------+----------+----------+--------+---------+
+|    101 | scor     | cism     |     10 | sales   |
+|    103 | yash     | molawde  |     30 | tech    |
+|    104 | krishna  | nohara   |      0 | tp      |
+|    106 | nashita  | patel    |     50 | support |
+|    102 | JASH     | boricha  |     20 | tax     |
+|    105 | aniket   | nawale   |     80 | tp      |
+|    107 | JASH     | bori     |     90 | NULL    |
++--------+----------+----------+--------+---------+
+7 rows in set (0.00 sec)

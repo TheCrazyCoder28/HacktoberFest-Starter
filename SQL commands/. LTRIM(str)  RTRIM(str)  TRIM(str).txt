@@ -1,0 +1,9 @@
+mysql> Select LTRIM(' abc ') as L, RTRIM(' abc ') as R, TRIM(' abc ') as T;
++------+------+------+
+| L    | R    | T    |
++------+------+------+
+| abc  |  abc | abc  |
++------+------+------+
+1 row in set (0.13 sec)
+
+mysql>

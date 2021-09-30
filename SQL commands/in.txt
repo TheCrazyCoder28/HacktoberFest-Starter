@@ -1,0 +1,9 @@
+mysql> select * from employee where salary in (30,20,80);
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    103 | yash     | molawde  |     30 |
+|    102 | JASH     | boricha  |     20 |
+|    105 | aniket   | nawale   |     80 |
++--------+----------+----------+--------+
+3 rows in set (0.00 sec)

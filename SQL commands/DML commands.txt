@@ -1,0 +1,237 @@
+mysql: [Warning] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe: ignoring option '--no-beep' due to invalid value ''.
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 43
+Server version: 8.0.23 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use hello;
+Database changed
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> use hello;
+Database changed
+mysql> select database();
++------------+
+| database() |
++------------+
+| hello      |
++------------+
+1 row in set (0.00 sec)
+
+mysql> describe hello;
+ERROR 1146 (42S02): Table 'hello.hello' doesn't exist
+mysql> use sys;
+Database changed
+mysql> describe sys;
+ERROR 1146 (42S02): Table 'sys.sys' doesn't exist
+mysql> select database();
++------------+
+| database() |
++------------+
+| sys        |
++------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE employee(
+    -> emp_id int not null,
+    -> emp_name varchar(20),
+    -> emp_last varchar(20),
+    -> salary int);
+Query OK, 0 rows affected (1.66 sec)
+
+mysql> select * from employee;
+Empty set (0.14 sec)
+
+mysql> select * from employee
+    -> ;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO employee,
+    -> (emp_id,emp_name,emp_last,salary),
+    -> VALUES
+    -> (101,scor,cism,10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+(emp_id,emp_name,emp_last,salary),
+VALUES
+(101,scor,cism,10)' at line 1
+mysql> INSERT INTO employee,
+    -> (emp_id,emp_name,emp_last,salary),
+    -> VALUES
+    -> (101,"scor","cism",10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+(emp_id,emp_name,emp_last,salary),
+VALUES
+(101,"scor","cism",10)' at line 1
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary),
+    -> VALUES
+    -> (101,"scor","cism",10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+VALUES
+(101,"scor","cism",10)' at line 2
+mysql> INSERT INTO employee,
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (101,"scor","cism",10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',
+(emp_id,emp_name,emp_last,salary)
+VALUES
+(101,"scor","cism",10)' at line 1
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| test               |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use hello;
+Database changed
+mysql> describe hello;
+ERROR 1146 (42S02): Table 'hello.hello' doesn't exist
+mysql> CREATE TABLE employee(
+    -> emp_id int not null,
+    -> emp_name varchar(20),
+    -> emp_last varchar(20),
+    -> salary int);
+Query OK, 0 rows affected (0.76 sec)
+
+mysql> select * from employee;
+Empty set (0.33 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (101,"scor","cism",10);
+Query OK, 1 row affected (0.19 sec)
+
+mysql> select * from employee;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
++--------+----------+----------+--------+
+1 row in set (0.13 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (102,"jash","boricha",20);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (103,"yash","molawde",30);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (104,"krishna","tiwari",00);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (105,"aniket","nawale",40);
+Query OK, 1 row affected (0.40 sec)
+
+mysql> INSERT INTO employee
+    -> (emp_id,emp_name,emp_last,salary)
+    -> VALUES
+    -> (106,"nashita","patel",50);
+Query OK, 1 row affected (0.21 sec)
+
+mysql> select * from employee;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
+|    102 | jash     | boricha  |     20 |
+|    103 | yash     | molawde  |     30 |
+|    104 | krishna  | tiwari   |      0 |
+|    105 | aniket   | nawale   |     40 |
+|    106 | nashita  | patel    |     50 |
++--------+----------+----------+--------+
+6 rows in set (0.12 sec)
+
+mysql> UPDATE employee
+    -> SET last_name="boricha"
+    -> WHERE emp_id=105;
+ERROR 1054 (42S22): Unknown column 'last_name' in 'field list'
+mysql> UPDATE employee
+    -> SET emp_last="boricha"
+    -> WHERE emp_id=105;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
+|    102 | jash     | boricha  |     20 |
+|    103 | yash     | molawde  |     30 |
+|    104 | krishna  | tiwari   |      0 |
+|    105 | aniket   | boricha  |     40 |
+|    106 | nashita  | patel    |     50 |
++--------+----------+----------+--------+
+6 rows in set (0.10 sec)
+
+mysql> DELETE FROM employee
+    -> WHERE emp_id IN
+    -> (102,105);
+Query OK, 2 rows affected (0.26 sec)
+
+mysql> select * from employee;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    101 | scor     | cism     |     10 |
+|    103 | yash     | molawde  |     30 |
+|    104 | krishna  | tiwari   |      0 |
+|    106 | nashita  | patel    |     50 |
++--------+----------+----------+--------+
+4 rows in set (0.10 sec)
+
+mysql>

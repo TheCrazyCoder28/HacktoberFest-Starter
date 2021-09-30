@@ -1,0 +1,30 @@
+
+mysql> Select Name, surname, SUBSTR(Name, 2), SUBSTRING(Name, 2, 2) from abhishek;
++----------+---------+-----------------+-----------------------+
+| Name     | surname | SUBSTR(Name, 2) | SUBSTRING(Name, 2, 2) |
++----------+---------+-----------------+-----------------------+
+| abhishek | pathak  | bhishek         | bh                    |
+| jash     | boricha | ash             | as                    |
+| aniket   | navale  | niket           | ni                    |
+| yash     | molawde | ash             | as                    |
+| Krishna  | tiwari  | rishna          | ri                    |
+| abhishek | pathak  | bhishek         | bh                    |
+| yash     | molawde | ash             | as                    |
++----------+---------+-----------------+-----------------------+
+7 rows in set (0.00 sec)
+
+mysql> Select Name, surname, SUBSTR(Name, 7), SUBSTRING(Name, 2, 4) from abhishek;
++----------+---------+-----------------+-----------------------+
+| Name     | surname | SUBSTR(Name, 7) | SUBSTRING(Name, 2, 4) |
++----------+---------+-----------------+-----------------------+
+| abhishek | pathak  | ek              | bhis                  |
+| jash     | boricha |                 | ash                   |
+| aniket   | navale  |                 | nike                  |
+| yash     | molawde |                 | ash                   |
+| Krishna  | tiwari  | a               | rish                  |
+| abhishek | pathak  | ek              | bhis                  |
+| yash     | molawde |                 | ash                   |
++----------+---------+-----------------+-----------------------+
+7 rows in set (0.00 sec)
+
+mysql>

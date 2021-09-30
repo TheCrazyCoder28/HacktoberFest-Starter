@@ -1,0 +1,14 @@
+
+mysql> select name,surname,field ('abhishek',name,surname) as field_name from abhishek;
++----------+---------+------------+
+| name     | surname | field_name |
++----------+---------+------------+
+| abhishek | pathak  |          1 |
+| jash     | boricha |          0 |
+| aniket   | navale  |          0 |
+| yash     | molawde |          0 |
+| Krishna  | tiwari  |          0 |
+| abhishek | pathak  |          1 |
+| yash     | molawde |          0 |
++----------+---------+------------+
+7 rows in set (0.01 sec)

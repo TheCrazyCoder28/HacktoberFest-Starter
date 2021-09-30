@@ -1,0 +1,35 @@
+
+mysql> select * from department;
++---------+------------+----------+
+| dept_id | dept       | dept_loc |
++---------+------------+----------+
+|       1 | content    | india    |
+|       2 | drama      | uk       |
+|       3 | support    | ny       |
+|       4 | sales      | boston   |
+|       5 | operations | ny       |
++---------+------------+----------+
+5 rows in set (0.11 sec)
+
+
+mysql> update department
+    -> set dept_id=6
+    -> where dept="support"
+    -> ;
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> select * from department;
++---------+------------+----------+
+| dept_id | dept       | dept_loc |
++---------+------------+----------+
+|       1 | content    | india    |
+|       2 | drama      | uk       |
+|       6 | support    | ny       |
+|       4 | sales      | boston   |
+|       5 | operations | ny       |
++---------+------------+----------+
+5 rows in set (0.12 sec)
+
+mysql>

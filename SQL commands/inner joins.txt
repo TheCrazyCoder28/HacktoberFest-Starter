@@ -1,0 +1,44 @@
+mysql> select * from acting;
++---------+--------+-----------+
+| dept_id | dept   | dept_loc  |
++---------+--------+-----------+
+|       1 | python | uk        |
+|       2 | web    | ny        |
+|       3 | html   | boston    |
+|       4 | js     | ghatkopar |
+|       5 | php    | csmt      |
++---------+--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from department;
++---------+------------+----------+
+| dept_id | dept       | dept_loc |
++---------+------------+----------+
+|       1 | content    | india    |
+|       2 | drama      | uk       |
+|       6 | support    | ny       |
+|       4 | sales      | boston   |
+|       9 | operations | ny       |
++---------+------------+----------+
+5 rows in set (0.11 sec)
+
+mysql> select a.dept_id,a.dept,a.dept_loc
+    -> from acting a
+    -> inner join department d
+    -> on a.dept=d.dept;
+Empty set (0.10 sec)
+
+mysql> select a.dept_id,a.dept,a.dept_loc
+    -> from acting a
+    -> inner join department d
+    -> on a.dept_id=d.dept_id;
++---------+--------+-----------+
+| dept_id | dept   | dept_loc  |
++---------+--------+-----------+
+|       1 | python | uk        |
+|       2 | web    | ny        |
+|       4 | js     | ghatkopar |
++---------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql>

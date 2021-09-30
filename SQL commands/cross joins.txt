@@ -1,0 +1,33 @@
+mysql> select * from acting cross join department;
++---------+--------+-----------+---------+------------+----------+
+| dept_id | dept   | dept_loc  | dept_id | dept       | dept_loc |
++---------+--------+-----------+---------+------------+----------+
+|       5 | php    | csmt      |       1 | content    | india    |
+|       4 | js     | ghatkopar |       1 | content    | india    |
+|       3 | html   | boston    |       1 | content    | india    |
+|       2 | web    | ny        |       1 | content    | india    |
+|       1 | python | uk        |       1 | content    | india    |
+|       5 | php    | csmt      |       2 | drama      | uk       |
+|       4 | js     | ghatkopar |       2 | drama      | uk       |
+|       3 | html   | boston    |       2 | drama      | uk       |
+|       2 | web    | ny        |       2 | drama      | uk       |
+|       1 | python | uk        |       2 | drama      | uk       |
+|       5 | php    | csmt      |       6 | support    | ny       |
+|       4 | js     | ghatkopar |       6 | support    | ny       |
+|       3 | html   | boston    |       6 | support    | ny       |
+|       2 | web    | ny        |       6 | support    | ny       |
+|       1 | python | uk        |       6 | support    | ny       |
+|       5 | php    | csmt      |       4 | sales      | boston   |
+|       4 | js     | ghatkopar |       4 | sales      | boston   |
+|       3 | html   | boston    |       4 | sales      | boston   |
+|       2 | web    | ny        |       4 | sales      | boston   |
+|       1 | python | uk        |       4 | sales      | boston   |
+|       5 | php    | csmt      |       9 | operations | ny       |
+|       4 | js     | ghatkopar |       9 | operations | ny       |
+|       3 | html   | boston    |       9 | operations | ny       |
+|       2 | web    | ny        |       9 | operations | ny       |
+|       1 | python | uk        |       9 | operations | ny       |
++---------+--------+-----------+---------+------------+----------+
+25 rows in set (0.00 sec)
+
+mysql>

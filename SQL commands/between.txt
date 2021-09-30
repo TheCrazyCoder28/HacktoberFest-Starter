@@ -1,0 +1,11 @@
+
+mysql> select * from employee where salary between 20 and 80;
++--------+----------+----------+--------+
+| emp_id | emp_name | emp_last | salary |
++--------+----------+----------+--------+
+|    103 | yash     | molawde  |     30 |
+|    106 | nashita  | patel    |     50 |
+|    102 | JASH     | boricha  |     20 |
+|    105 | aniket   | nawale   |     80 |
++--------+----------+----------+--------+
+4 rows in set (0.00 sec)

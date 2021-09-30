@@ -1,0 +1,12 @@
+mysql> select emp_name,max(salary),dept_id from employee group by dept_id
+    -> ;
++----------+-------------+---------+
+| emp_name | max(salary) | dept_id |
++----------+-------------+---------+
+| scor     |          10 | sales   |
+| yash     |          30 | tech    |
+| krishna  |          80 | tp      |
+| nashita  |          50 | support |
+| JASH     |          90 | tax     |
++----------+-------------+---------+
+5 rows in set (0.14 sec)

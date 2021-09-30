@@ -1,0 +1,66 @@
+
+####  Commands
+show dbs
+show collections(table)
+use abhi --> will create a new database if not existing
+db.text.insert({"name":"abhishek"})
+
+####  Create another collection
+
+db.anotherCollection.inserttOne({a: 89})
+
+#### Inserting data in mongo db
+
+use abhiKart  --> creating db with name abhiKart
+db.items.insertOne({name:"pablo 2",price: 1234,rating: 4.5, qty: 223, sold: 23}) --> this is  inserted in the collection | or table like
+
+#### For many to insert at the same time
+db.items.insertMany([{name:"pablo 4",price: 14234,rating: 4.45, qty: 22, sold: 23},{name:"pablo 3",price: 13234,rating: 4.35, qty: 23, sold: 23}]) 
+
+db.items.find()  --> To Get All Objects
+
+#### To Get Query
+
+db.items.find() -> To Get All Objects
+db.items.find({price: 3.5}) -> documents which matched the filter object
+
+price: 3.5 --> is a Filter Object
+
+db.items.find({rating: {$gte: 4.45}}) -> Will Give the output whoose rating is Greater(gt) then equal to 4.45
+
+#### Greater Then
+db.items.find({rating: {$gt: 4.45}}) -> Will Give the output whoose rating is Greater(gt) then  4.45
+
+#### Less Then
+db.items.find({rating: {$lt: 4.45}}) -> Will Give the output whoose rating is less then  4.45
+
+#### AND Operator (,)
+db.items.find({rating: {$gt: 4.45}, price: {$gt: 1234}})
+
+#### Or 
+db.items.find({$or:[{rating: {$gt: 4.45}}, {price:{$gt: 1234}}]})
+
+db.items.find({ 
+	$or:[{rating: {$gt: 4.45}}, {price: {$gt: 1234}}]
+	})
+
+
+db.items.find({rating: {$gt: 3.5}}, {"rating" : 1})  --> Get only Values of rating
+
+db.items.find({rating: {$gt: 3.5}}, {"rating" : 1, "qty": 1})  --> Get only Values of rating and qty
+
+
+####  Deleting Items
+
+db.items.find({price:1234})
+
+db.items.deleteOne({price:1234})  --> Will del. 1st if many available
+
+db.items.deleteMany({price:1234})  --> Will delete all occurence related to the filter object
+
+
+####  Updation
+
+db.items.updateOne({name:"pablo 4"}, {$set: {price:2}})
+
+db.items.updateMany({name:"pablo 4"}, {$set: {price:3, rating:1}})

@@ -1,0 +1,30 @@
+mysql> select * from acting;
++---------+--------+-----------+
+| dept_id | dept   | dept_loc  |
++---------+--------+-----------+
+|       1 | python | uk        |
+|       2 | web    | ny        |
+|       3 | html   | boston    |
+|       4 | js     | ghatkopar |
+|       5 | php    | csmt      |
+|       6 | c      | nj        |
++---------+--------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> delete from acting
+    -> where dept_loc="nj";
+Query OK, 1 row affected (0.21 sec)
+
+mysql> select * from acting;
++---------+--------+-----------+
+| dept_id | dept   | dept_loc  |
++---------+--------+-----------+
+|       1 | python | uk        |
+|       2 | web    | ny        |
+|       3 | html   | boston    |
+|       4 | js     | ghatkopar |
+|       5 | php    | csmt      |
++---------+--------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>

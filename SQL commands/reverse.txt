@@ -1,0 +1,16 @@
+mysql> Select Name, REVERSE(Name) from abhishek;
++----------+---------------+
+| Name     | REVERSE(Name) |
++----------+---------------+
+| abhishek | kehsihba      |
+| jash     | hsaj          |
+| aniket   | tekina        |
+| yash     | hsay          |
+| Krishna  | anhsirK       |
+| abhishek | kehsihba      |
+| yash     | hsay          |
++----------+---------------+
+7 rows in set (0.03 sec)
+
+mysql>
+
