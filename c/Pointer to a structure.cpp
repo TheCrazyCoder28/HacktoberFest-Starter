@@ -9,7 +9,7 @@ typedef struct person
 int main()
 {
     struct person *personPtr, person1;
-    personPtr = &person1;            // Referencing pointer to memory address of person1
+    personPtr = &person1;             // Referencing pointer to memory address of person1
 
     printf("Enter integer: ");
     scanf("%d",&(*personPtr).age);
