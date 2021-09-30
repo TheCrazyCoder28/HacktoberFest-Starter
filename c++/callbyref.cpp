@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//Using C Pointers
+// Using C Pointers
 // int swap(int *x, int *y){
 //     int t;
 //     t= *y;
