@@ -1,6 +1,6 @@
 class Person {
   static String Company;
-  String _first_name; //private variable
+  String _first_name; // private variable
   String _last_name;
 
   Person(String name) {
