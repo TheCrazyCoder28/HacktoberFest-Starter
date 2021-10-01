@@ -15,4 +15,7 @@
 |13| GoogolDKhan        | India          |
 |14| Ankit Sangwan      | India          |
 |15| mahesh-11102       | India          |
-|16| Ayan Gupta         | India          |
+|16| chirantan-basu01   | India          |
+|17| Nick-h4ck3r        | India          |
+|18| Ayan Gupta         | India          |
+
