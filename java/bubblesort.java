@@ -1,5 +1,5 @@
 import java.util.Random; 
-public class bubblesort {  
+public class BubbleSort {  
     static void BubbleSort(int[] arr) {  
         int n = arr.length;  
         int temp = 0;  

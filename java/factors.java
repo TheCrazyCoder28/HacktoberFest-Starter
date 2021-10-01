@@ -1,13 +1,13 @@
 package com.abhishek;
 
-public class factors {
+public class Factors {
     public static void main(String[] args){
         factor2(20);
     }
 
 
 //    O(n)
-    static void factor(int n){
+    static void Factors(int n){
         for(int i=1; i<=n;i++){
             if(n%i == 0){
                 System.out.println(i);
@@ -16,7 +16,7 @@ public class factors {
     }
 
 //    O(sqrt(n))
-    static void factor2(int n){
+    static void Factors(int n){
         for(int i=1; i<=Math.sqrt(n);i++){
             if(n%i == 0) {
                 if (i == n / i) {

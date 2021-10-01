@@ -1,6 +1,6 @@
-package com.abhishek;
+// package com.abhishek;
 
-public class Main {
+public class isPrime {
 
     public static void main(String[] args) {
 	// write your code here
