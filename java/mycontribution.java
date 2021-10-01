@@ -1,9 +1,7 @@
-import java.io.*;
-
-class mycontribution
+public class MyContribution 
 {
-public ststic void main(String[]args)
-{
-System.out.println("my contribution to Hactoberfest 2020");
-}
+    public static void main(String[]args)
+    {
+        System.out.println("my contribution to Hactoberfest 2020");
+    }
 }
