@@ -23,3 +23,5 @@
 |21| Chinmoy Kalita     | India          |
 |22| Tausiq Samantaray  | India          |
 |23| VkRan              | India          |
+|24| Vikas Bhalla       | India          |
+
