@@ -23,4 +23,4 @@ while True:
                 break
     except ValueError:
         print("Enter a valid number")
-print("Thanks for using our program :)")
+print("Thanks for using our program:)")
