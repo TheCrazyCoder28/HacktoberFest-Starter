@@ -21,4 +21,9 @@
 |19| Kunal Kumar Sahoo  | India          |
 |20| tuminzee           | India          |
 |21| Chinmoy Kalita     | India          |
-|22| Sandeep Ahirwar    | India          |
+|22| Tausiq Samantaray  | India          |
+|23| VkRan              | India          |
+|24| Vikas Bhalla       | India          |
+|25| sidsrivastavasks   | India          |
+|26| Sandeep Ahirwar    | India          |
+
