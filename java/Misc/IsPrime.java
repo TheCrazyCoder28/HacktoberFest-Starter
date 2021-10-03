@@ -1,16 +1,16 @@
 // package com.abhishek;
 
-public class isPrime {
+public class IsPrime {
 
     public static void main(String[] args) {
 	// write your code here
         int n =20;
         for (int i=1; i<=n;i++){
-            System.out.println(i + " : " + isPrime(i));
+            System.out.println(i + " : " + IsPrime(i));
         }
     }
 
-    static boolean isPrime(int n){
+    static boolean IsPrime(int n){
 //        checking if the user provide 1 then return false
         if(n<=1){
             return false;
